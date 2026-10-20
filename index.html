@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Моднявые бульдожки — ателье одежды для французских бульдогов</title>
+<meta name="description" content="Сервис подбора одежды для французских бульдогов: свитера, комбинезоны и смокинги по меркам вашего френчи.">
+<style>
+/* ===== 1. Переменные и база ===== */
+:root{
+  --milk:#FFF9F0; --navy:#2E3A59; --wine:#8B2635; --coffee:#3C2A21;
+  --paper:#F6EBDC; --line:rgba(60,42,33,.2);
+  --serif:"Didot","Bodoni MT","Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Avenir Next","Segoe UI",Helvetica,Arial,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--milk);color:var(--coffee);font:1.0625rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);color:var(--navy);line-height:1.15;font-weight:700}
+h2{font-size:clamp(1.9rem,4.5vw,2.9rem);margin-bottom:.6rem}
+h3{font-size:1.35rem}
+a{color:inherit}
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+.lead{max-width:60ch;margin-bottom:2.5rem;opacity:.85}
+:focus-visible{outline:3px solid var(--wine);outline-offset:3px}
+.btn{display:inline-block;padding:.85rem 1.6rem;border:2px solid var(--wine);background:var(--wine);color:var(--milk);font:600 1rem var(--sans);text-decoration:none;border-radius:2px;cursor:pointer;transition:background .25s,color .25s,transform .25s}
+.btn:hover{background:transparent;color:var(--wine);transform:translateY(-2px)}
+.btn.ghost{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn.ghost:hover{background:var(--navy);color:var(--milk)}
+
+/* ===== 2. Header: липкое меню ===== */
+header{position:sticky;top:0;z-index:50;background:rgba(255,249,240,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:700 1.35rem var(--serif);color:var(--navy);text-decoration:none}
+.logo span{color:var(--wine)}
+nav ul{display:flex;gap:1.8rem;list-style:none}
+nav a{text-decoration:none;font-size:.95rem;padding:.3rem 0;background:linear-gradient(var(--wine),var(--wine)) 0 100%/0 2px no-repeat;transition:background-size .3s}
+nav a:hover{background-size:100% 2px}
+#nav-toggle{position:absolute;opacity:0;pointer-events:none}
+.burger{display:none;cursor:pointer;font-size:1.6rem;color:var(--navy)}
+#nav-toggle:focus-visible~.bar .burger{outline:3px solid var(--wine)}
+
+/* ===== 3. Hero ===== */
+.hero{padding-bottom:0;background:radial-gradient(circle at 85% 20%,var(--paper),transparent 55%)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2.4rem,6.2vw,4.6rem);letter-spacing:-.01em;margin-bottom:1.2rem}
+.hero p{max-width:46ch;margin-bottom:2rem;font-size:1.15rem}
+.hero .btns{display:flex;flex-wrap:wrap;gap:1rem}
+.portrait{position:relative;aspect-ratio:4/5;max-width:380px;margin-inline:auto;width:100%;background:var(--navy);border:10px solid var(--milk);outline:1px solid var(--line);box-shadow:0 20px 40px rgba(46,58,89,.25);display:grid;place-items:center;font-size:clamp(7rem,18vw,10rem)}
+.portrait .hat{position:absolute;top:14%;font-size:.38em;transform:rotate(-8deg)}
+.hang{position:absolute;right:-14px;bottom:12%;background:var(--milk);color:var(--coffee);font:.85rem/1.4 var(--sans);padding:.7rem 1rem .7rem 1.4rem;border:1px solid var(--wine);transform-origin:100% 0;animation:swing 4s ease-in-out infinite;clip-path:polygon(12% 0,100% 0,100% 100%,12% 100%,0 50%)}
+.hang b{display:block;font:700 1rem var(--serif);color:var(--wine)}
+@keyframes swing{50%{transform:rotate(5deg)}}
+.tape{margin-top:3.5rem;height:36px;background:
+  repeating-linear-gradient(90deg,var(--coffee) 0 1.5px,transparent 1.5px 10px) bottom/100% 9px no-repeat,
+  repeating-linear-gradient(90deg,var(--coffee) 0 1.5px,transparent 1.5px 50px) bottom/100% 18px no-repeat,#EAD9B5}
+
+/* ===== 4. О сервисе ===== */
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.about p+p{margin-top:1rem}
+.facts{display:grid;gap:1.2rem}
+.facts div{padding:1rem 1.3rem;border-left:4px solid var(--wine);background:var(--paper)}
+.facts dt{font:700 1.15rem var(--serif);color:var(--navy)}
+.facts dd{font-size:.97rem}
+
+/* ===== 5. Преимущества ===== */
+.perks{background:var(--navy);color:var(--milk)}
+.perks h2{color:var(--milk)}
+.perks .lead{opacity:.8}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.perk{padding:1.8rem 1.4rem;border:1px solid rgba(255,249,240,.28);transition:background .3s,transform .3s}
+.perk:hover{background:rgba(255,249,240,.08);transform:translateY(-4px)}
+.perk i{font-style:normal;font-size:2.2rem;display:block;margin-bottom:.8rem}
+.perk h3{color:var(--milk);font-size:1.2rem;margin-bottom:.5rem}
+.perk p{font-size:.95rem;opacity:.85}
+.perk:nth-child(even){margin-top:1.5rem}
+
+/* ===== 6. Каталог ===== */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+.item{background:#fff;border:1px solid var(--line);transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column}
+.item:hover{box-shadow:0 14px 30px rgba(60,42,33,.15);transform:translateY(-5px)}
+.pic{height:190px;display:grid;place-items:center;font-size:4.5rem;background:var(--c,var(--paper));position:relative}
+.pic small{position:absolute;left:12px;top:12px;font:.78rem var(--sans);background:var(--milk);color:var(--wine);padding:.15rem .6rem;border:1px solid var(--wine)}
+.item div.body{padding:1.3rem;display:flex;flex-direction:column;flex:1}
+.item p{font-size:.95rem;margin:.4rem 0 1rem;flex:1}
+.price{font:700 1.4rem var(--serif);color:var(--wine)}
+.item .btn{margin-top:1rem;align-self:flex-start}
+.out .btn{margin-top:.8rem}
+
+/* ===== 7. Квиз (чистый CSS на :checked и :has) ===== */
+.quiz-sec{background:var(--paper)}
+.quiz{max-width:760px;background:var(--milk);border:1px solid var(--line);padding:clamp(1.4rem,4vw,2.5rem)}
+.quiz fieldset{border:0;margin-bottom:1.8rem}
+.quiz legend{font:700 1.2rem var(--serif);color:var(--navy);margin-bottom:.8rem}
+.opts{display:flex;flex-wrap:wrap;gap:.7rem}
+.opts input{position:absolute;opacity:0}
+.opts label{padding:.6rem 1.1rem;border:1.5px solid var(--navy);cursor:pointer;border-radius:100px;transition:background .2s,color .2s}
+.opts label:hover{background:rgba(46,58,89,.1)}
+.opts input:checked+label{background:var(--navy);color:var(--milk)}
+.opts input:focus-visible+label{outline:3px solid var(--wine);outline-offset:2px}
+.out{border-top:2px dashed var(--wine);padding-top:1.4rem}
+.out>*{display:none}
+.out .hint{display:block;opacity:.7}
+.quiz:has(input:checked) .hint{display:none}
+.quiz:has(#o1:checked) .r1,.quiz:has(#o2:checked) .r2,.quiz:has(#o3:checked) .r3,
+.quiz:has(#s1:checked) .z1,.quiz:has(#s2:checked) .z2,.quiz:has(#s3:checked) .z3{display:block}
+.out h3{margin-bottom:.3rem}
+.out .z1,.out .z2,.out .z3{margin-top:.6rem;padding:.6rem 1rem;background:var(--paper);border-left:4px solid var(--wine);font-size:.97rem}
+
+/* ===== 8. Отзывы ===== */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+blockquote{background:#fff;border:1px solid var(--line);padding:1.8rem 1.5rem 1.4rem;position:relative}
+blockquote::before{content:"«";position:absolute;top:-.2rem;left:1rem;font:700 4.5rem var(--serif);color:var(--wine);opacity:.35;line-height:1}
+blockquote p{margin:1rem 0;font-style:italic}
+blockquote footer{font-size:.9rem;color:var(--navy);border-top:1px solid var(--line);padding-top:.8rem}
+blockquote:nth-child(2){margin-top:1.8rem}
+
+/* ===== 9. Контакты и футер ===== */
+.contact{background:var(--navy);color:var(--milk)}
+.contact h2{color:var(--milk)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact ul{list-style:none;margin-top:1.5rem;display:grid;gap:.7rem}
+.contact a{text-decoration-color:var(--wine);text-underline-offset:4px}
+form{display:grid;gap:1rem}
+label.f{display:grid;gap:.3rem;font-size:.92rem}
+input.t,select,textarea{font:inherit;padding:.75rem .9rem;border:1px solid rgba(255,249,240,.4);background:rgba(255,249,240,.08);color:var(--milk);border-radius:2px}
+select option{color:var(--coffee)}
+textarea{min-height:100px;resize:vertical}
+.contact .btn:hover{color:var(--milk);border-color:var(--milk)}
+.contact :focus-visible{outline-color:var(--milk)}
+.foot{background:var(--coffee);color:rgba(255,249,240,.75);text-align:center;padding:1.6rem 1rem;font-size:.9rem}
+
+/* ===== 10. Адаптивность ===== */
+@media (max-width:980px){
+  .grid4{grid-template-columns:repeat(2,1fr)}
+  .perk:nth-child(even){margin-top:0}
+  .grid3,.quotes{grid-template-columns:repeat(2,1fr)}
+  blockquote:nth-child(2){margin-top:0}
+}
+@media (max-width:760px){
+  .burger{display:block}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--milk);border-bottom:1px solid var(--line);display:none}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1rem}
+  nav a{display:block;padding:.7rem 0}
+  #nav-toggle:checked~nav{display:block}
+  .hero .wrap,.about .wrap,.contact .wrap{grid-template-columns:1fr}
+  .portrait{max-width:300px;order:-1}
+  .hang{right:-6px}
+}
+@media (max-width:560px){
+  .grid4,.grid3,.quotes{grid-template-columns:1fr}
+  .btn{width:100%;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Header / навигация -->
+<header>
+  <input type="checkbox" id="nav-toggle" aria-label="Открыть меню">
+  <div class="wrap bar">
+    <a class="logo" href="#top">Моднявые <span>бульдожки</span></a>
+    <label class="burger" for="nav-toggle" aria-hidden="true">☰</label>
+    <nav aria-label="Основное меню">
+      <ul>
+        <li><a href="#about">О сервисе</a></li>
+        <li><a href="#perks">Преимущества</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#quiz">Подбор</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Высокая мода для тех, у кого короткая шея</h1>
+      <p>Ателье и подбор одежды для французских бульдогов. Шьём по меркам широкой груди, коротких лап и большого самомнения.</p>
+      <div class="btns">
+        <a class="btn" href="#quiz">Подобрать наряд</a>
+        <a class="btn ghost" href="#catalog">Смотреть коллекцию</a>
+      </div>
+    </div>
+    <div class="portrait" role="img" aria-label="Французский бульдог в цилиндре">
+      <span class="hat">🎩</span>🐶
+      <div class="hang"><b>Модель: Багет</b>Шея: 34 см (гордость)</div>
+    </div>
+  </div>
+  <div class="tape" aria-hidden="true"></div>
+</section>
+
+<!-- О сервисе -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div>
+      <h2>Почему френчи не носят одежду «как у всех»</h2>
+      <p>Французский бульдог устроен как маленький борец: массивная грудь, узкий таз, короткие лапы и плоская мордочка. Обычный свитер для такой фигуры давит под лапами, сползает на шею и мешает дышать.</p>
+      <p>Мы делаем выкройки именно под эту анатомию, а ещё помогаем выбрать наряд по погоде: у бульдогов шерсть короткая, подшёрстка почти нет.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>🌡️ Мёрзнут быстро</dt><dd>Короткая шерсть почти не греет. Уже при +5 °C на прогулке нужен тёплый слой.</dd></div>
+      <div><dt>🥵 Перегреваются ещё быстрее</dt><dd>Из-за плоской мордочки охлаждаться трудно, поэтому летом мы шьём из дышащего льна.</dd></div>
+      <div><dt>📏 Нестандартные пропорции</dt><dd>Обхват груди часто больше, чем длина спины. Размерные сетки «для маленьких собак» тут не работают.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- Преимущества -->
+<section class="perks" id="perks">
+  <div class="wrap">
+    <h2>Сидит так, будто родился в этом</h2>
+    <p class="lead">Четыре особенности френчи, которые мы учитываем в каждой модели.</p>
+    <div class="grid4">
+      <article class="perk"><i>💪</i><h3>Широкая грудь</h3><p>Расширенная грудная часть и эластичные вставки: ни одной складки, ни одного вздоха обиды.</p></article>
+      <article class="perk"><i>🐾</i><h3>Короткие лапы</h3><p>Рукава и штанины подогнаны так, чтобы наряд не волочился по лужам и не мешал бегать за мячом.</p></article>
+      <article class="perk"><i>🧴</i><h3>Чувствительная кожа</h3><p>Хлопок и мериносовая шерсть без колючих швов. Бирки выносим наружу, чтобы не натирали.</p></article>
+      <article class="perk"><i>👑</i><h3>Свободное горло</h3><p>Воротник не давит на шею и дыхательные пути. Шея короткая, но стиль безупречный.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Каталог -->
+<section id="catalog">
+  <div class="wrap">
+    <h2>Коллекция сезона «Осень в Париже»</h2>
+    <p class="lead">Шесть образов для прогулки, дождя, светского раута и дивана. Размеры от S до XXL.</p>
+    <div class="grid3">
+      <article class="item"><div class="pic" style="--c:#E7D3BC"><small>Хит</small>🧶</div><div class="body"><h3>Свитер «Парижский шик»</h3><p>Мериносовая шерсть, косы на спине и воротник, который не давит.</p><span class="price">2 490 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#2E3A59;color:#fff"><small>Новинка</small>🎩</div><div class="body"><h3>Смокинг «Барон»</h3><p>Для свадеб, дней рождения и важных переговоров с лакомством.</p><span class="price">5 900 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#D9E0EE">❄️</div><div class="body"><h3>Комбинезон «Зимний Париж»</h3><p>Утеплённый, непромокаемый, с кнопками вдоль спины. Греет лапы и самолюбие.</p><span class="price">4 200 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#EBD0D4">🌧️</div><div class="body"><h3>Плащ «Монмартр»</h3><p>Светоотражающая кайма и капюшон, который можно не надевать из принципа.</p><span class="price">3 300 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#F3E6C8">⚓</div><div class="body"><h3>Тельняшка «Моряк с Лазурки»</h3><p>Лёгкий хлопок для тёплых дней. Дышит лучше, чем хозяин в пробке.</p><span class="price">1 890 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#E4D6E8">🛁</div><div class="body"><h3>Халат «Версаль после ванны»</h3><p>Махровый, впитывает всё, включая драму после купания.</p><span class="price">2 700 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- Квиз -->
+<section class="quiz-sec" id="quiz">
+  <div class="wrap">
+    <h2>Подбери наряд своему бульдогу</h2>
+    <p class="lead">Два вопроса, и наш придворный стилист назовёт образ. Ответы можно менять сколько угодно.</p>
+    <div class="quiz">
+      <fieldset>
+        <legend>Куда вы собрались?</legend>
+        <div class="opts">
+          <input type="radio" name="q1" id="o1"><label for="o1">На зимнюю прогулку</label>
+          <input type="radio" name="q1" id="o2"><label for="o2">Под дождь за круассаном</label>
+          <input type="radio" name="q1" id="o3"><label for="o3">На светский раут</label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Какая у вашего френчи грудь?</legend>
+        <div class="opts">
+          <input type="radio" name="q2" id="s1"><label for="s1">Скромная</label>
+          <input type="radio" name="q2" id="s2"><label for="s2">Обычная</label>
+          <input type="radio" name="q2" id="s3"><label for="s3">Как у борца</label>
+        </div>
+      </fieldset>
+      <div class="out" aria-live="polite">
+        <p class="hint">Выберите ответы, и здесь появится образ.</p>
+        <div class="r1"><h3>🧥 Комбинезон «Зимний Париж»</h3><p>Утеплённый и непромокаемый. 4 200 ₽</p><a class="btn" href="#contact">Заказать этот образ</a></div>
+        <div class="r2"><h3>🌧️ Плащ «Монмартр»</h3><p>Сухой бульдог, довольный бульдог. 3 300 ₽</p><a class="btn" href="#contact">Заказать этот образ</a></div>
+        <div class="r3"><h3>🎩 Смокинг «Барон»</h3><p>Бабочка в комплекте, манеры нет. 5 900 ₽</p><a class="btn" href="#contact">Заказать этот образ</a></div>
+        <div class="z1">Размер S–M: берите по обхвату груди и добавьте 2 см на комфорт.</div>
+        <div class="z2">Размер M–L: стандартная посадка подойдёт, но сверьтесь с таблицей.</div>
+        <div class="z3">Размер L–XXL: выбирайте модели с эластичными вставками на груди.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Отзывы -->
+<section id="reviews">
+  <div class="wrap">
+    <h2>Мнение тех, кто в этом ходит</h2>
+    <p class="lead">Отзывы получены лично, в обмен на лакомство.</p>
+    <div class="quotes">
+      <blockquote><p>Раньше я выглядел как сосиска в одеяле. Теперь я сосиска в «Бароне», и это всё меняет.</p><footer>Бублик, 3 года, ценитель смокингов</footer></blockquote>
+      <blockquote><p>Комбинезон тёплый, и не нужно больше изображать дрожь, чтобы меня взяли на ручки. Но я всё равно изображаю.</p><footer>Маркиз, 5 лет, мастер драматических пауз</footer></blockquote>
+      <blockquote><p>Свитер сел идеально, даже на мой выдающийся животик. Хозяйка плакала от счастья, я от того, что было слишком много фото.</p><footer>Груша, 2 года, звезда соцсетей</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- Контакты -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Запишитесь на примерку</h2>
+      <p>Расскажите о вашем бульдоге, и мы пришлём таблицу мерок и подберём образ.</p>
+      <ul>
+        <li>📍 Ателье: Париж, Rue du Faubourg Saint-Honoré, 24</li>
+        <li>📞 <a href="tel:+33142650000">+33 1 42 65 00 00</a></li>
+        <li>✉️ <a href="mailto:hello@modnyavye.example">hello@modnyavye.example</a></li>
+        <li>🕙 Ежедневно с 10:00 до 20:00</li>
+      </ul>
+    </div>
+    <form onsubmit="return false">
+      <label class="f">Кличка бульдога<input class="t" type="text" placeholder="Например, Багет"></label>
+      <label class="f">Email<input class="t" type="email" placeholder="you@example.com"></label>
+      <label class="f">Что нужно?
+        <select><option>Свитер</option><option>Комбинезон</option><option>Смокинг</option><option>Хочу всё</option></select>
+      </label>
+      <label class="f">Комментарий<textarea placeholder="Обхват груди, особые пожелания"></textarea></label>
+      <button class="btn" type="submit">Отправить заявку</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- Футер -->
+<footer class="foot">© 2026 Моднявые бульдожки. Ни один бульдог не пострадал, все стали красивее. 🐾</footer>
+
+</body>
+</html>
