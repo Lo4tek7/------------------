@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Моднявые бульдожки — ателье одежды для французских бульдогов</title>
 <meta name="description" content="Сервис подбора одежды для французских бульдогов: свитера, комбинезоны и смокинги по меркам вашего френчи.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Ctext%20y='.9em'%20font-size='90'%3E%F0%9F%90%B6%3C/text%3E%3C/svg%3E">
+<!-- Open Graph: корректное превью ссылки в соцсетях и мессенджерах -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Моднявые бульдожки">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Моднявые бульдожки — ателье одежды для французских бульдогов">
+<meta property="og:description" content="Сервис подбора одежды для французских бульдогов: свитера, комбинезоны и смокинги по меркам вашего френчи.">
+<!-- og:image — для продакшена замените data-URI на абсолютный URL картинки -->
+<meta property="og:image" content="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1200'%20height='630'%3E%3Crect%20width='1200'%20height='630'%20fill='%23FFF9F0'/%3E%3Ctext%20x='600'%20y='300'%20font-size='170'%20text-anchor='middle'%3E%F0%9F%90%B6%3C/text%3E%3Ctext%20x='600'%20y='470'%20font-family='Georgia,serif'%20font-size='54'%20font-weight='700'%20text-anchor='middle'%20fill='%238B2635'%3E%D0%9C%D0%BE%D0%B4%D0%BD%D1%8F%D0%B2%D1%8B%D0%B5%20%D0%B1%D1%83%D0%BB%D1%8C%D0%B4%D0%BE%D0%B6%D0%BA%D0%B8%3C/text%3E%3Ctext%20x='600'%20y='535'%20font-family='Arial,sans-serif'%20font-size='28'%20text-anchor='middle'%20fill='%232E3A59'%3E%D0%9E%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%84%D1%80%D0%B0%D0%BD%D1%86%D1%83%D0%B7%D1%81%D0%BA%D0%B8%D1%85%20%D0%B1%D1%83%D0%BB%D1%8C%D0%B4%D0%BE%D0%B3%D0%BE%D0%B2%3C/text%3E%3C/svg%3E">
+<meta property="og:image:alt" content="Моднявые бульдожки — французский бульдог в цилиндре">
 <style>
 /* ===== 1. Переменные и база ===== */
 :root{
@@ -129,6 +139,7 @@ select option{color:var(--coffee)}
 textarea{min-height:100px;resize:vertical}
 .contact .btn:hover{color:var(--milk);border-color:var(--milk)}
 .contact :focus-visible{outline-color:var(--milk)}
+.demo-note{margin-top:.3rem;font-size:.85rem;opacity:.75;display:flex;align-items:center;gap:.4rem}
 .foot{background:var(--coffee);color:rgba(255,249,240,.75);text-align:center;padding:1.6rem 1rem;font-size:.9rem}
 
 /* ===== 10. Адаптивность ===== */
@@ -315,6 +326,7 @@ textarea{min-height:100px;resize:vertical}
       </label>
       <label class="f">Комментарий<textarea placeholder="Обхват груди, особые пожелания"></textarea></label>
       <button class="btn" type="submit">Отправить заявку</button>
+      <p class="demo-note">🔒 Демо-режим: заявка никуда не отправляется, данные не сохраняются.</p>
     </form>
   </div>
 </section>
