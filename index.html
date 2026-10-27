@@ -80,8 +80,9 @@ nav a:hover{background-size:100% 2px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
 .item{background:#fff;border:1px solid var(--line);transition:box-shadow .3s,transform .3s;display:flex;flex-direction:column}
 .item:hover{box-shadow:0 14px 30px rgba(60,42,33,.15);transform:translateY(-5px)}
-.pic{height:190px;display:grid;place-items:center;font-size:4.5rem;background:var(--c,var(--paper));position:relative}
-.pic small{position:absolute;left:12px;top:12px;font:.78rem var(--sans);background:var(--milk);color:var(--wine);padding:.15rem .6rem;border:1px solid var(--wine)}
+.pic{height:190px;display:grid;place-items:center;font-size:4.5rem;background:var(--c,var(--paper));position:relative;overflow:hidden;padding:.75rem}
+.pic small{position:absolute;left:12px;top:12px;z-index:1;font:.78rem var(--sans);background:var(--milk);color:var(--wine);padding:.15rem .6rem;border:1px solid var(--wine)}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
 .item div.body{padding:1.3rem;display:flex;flex-direction:column;flex:1}
 .item p{font-size:.95rem;margin:.4rem 0 1rem;flex:1}
 .price{font:700 1.4rem var(--serif);color:var(--wine)}
@@ -236,10 +237,10 @@ textarea{min-height:100px;resize:vertical}
     <h2>Коллекция сезона «Осень в Париже»</h2>
     <p class="lead">Шесть образов для прогулки, дождя, светского раута и дивана. Размеры от S до XXL.</p>
     <div class="grid3">
-      <article class="item"><div class="pic" style="--c:#E7D3BC"><small>Хит</small>🧶</div><div class="body"><h3>Свитер «Парижский шик»</h3><p>Мериносовая шерсть, косы на спине и воротник, который не давит.</p><span class="price">2 490 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
-      <article class="item"><div class="pic" style="--c:#2E3A59;color:#fff"><small>Новинка</small>🎩</div><div class="body"><h3>Смокинг «Барон»</h3><p>Для свадеб, дней рождения и важных переговоров с лакомством.</p><span class="price">5 900 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
-      <article class="item"><div class="pic" style="--c:#D9E0EE">❄️</div><div class="body"><h3>Комбинезон «Зимний Париж»</h3><p>Утеплённый, непромокаемый, с кнопками вдоль спины. Греет лапы и самолюбие.</p><span class="price">4 200 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
-      <article class="item"><div class="pic" style="--c:#EBD0D4">🌧️</div><div class="body"><h3>Плащ «Монмартр»</h3><p>Светоотражающая кайма и капюшон, который можно не надевать из принципа.</p><span class="price">3 300 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#E7D3BC"><small>Хит</small><img src="images/bulldog1.jpg" alt="Свитер «Парижский шик» для французского бульдога" loading="lazy"></div><div class="body"><h3>Свитер «Парижский шик»</h3><p>Мериносовая шерсть, косы на спине и воротник, который не давит.</p><span class="price">2 490 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#2E3A59;color:#fff"><small>Новинка</small><img src="images/bulldog2.jpg" alt="Смокинг «Барон» для французского бульдога" loading="lazy"></div><div class="body"><h3>Смокинг «Барон»</h3><p>Для свадеб, дней рождения и важных переговоров с лакомством.</p><span class="price">5 900 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#D9E0EE"><img src="images/bulldog3.jpg" alt="Комбинезон «Зимний Париж» для французского бульдога" loading="lazy"></div><div class="body"><h3>Комбинезон «Зимний Париж»</h3><p>Утеплённый, непромокаемый, с кнопками вдоль спины. Греет лапы и самолюбие.</p><span class="price">4 200 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
+      <article class="item"><div class="pic" style="--c:#EBD0D4"><img src="images/bulldog4.jpg" alt="Плащ «Монмартр» для французского бульдога" loading="lazy"></div><div class="body"><h3>Плащ «Монмартр»</h3><p>Светоотражающая кайма и капюшон, который можно не надевать из принципа.</p><span class="price">3 300 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
       <article class="item"><div class="pic" style="--c:#F3E6C8">⚓</div><div class="body"><h3>Тельняшка «Моряк с Лазурки»</h3><p>Лёгкий хлопок для тёплых дней. Дышит лучше, чем хозяин в пробке.</p><span class="price">1 890 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
       <article class="item"><div class="pic" style="--c:#E4D6E8">🛁</div><div class="body"><h3>Халат «Версаль после ванны»</h3><p>Махровый, впитывает всё, включая драму после купания.</p><span class="price">2 700 ₽</span><a class="btn" href="#contact">Забрать →</a></div></article>
     </div>
